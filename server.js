@@ -4,6 +4,9 @@ const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
 const connectDB = require("./config/db");
+const itemRoutes = require("./routes/itemRoutes");
+
+
 
 // Load environment variables
 dotenv.config();
@@ -27,7 +30,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));
-
+app.use("/api/items", itemRoutes);
 
 
 // Socket setup
